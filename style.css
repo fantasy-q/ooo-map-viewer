@@ -1,0 +1,106 @@
+:root {
+  --cols: 33;
+  --rows: 34;
+  --gap: 0px;
+  --map-aspect: calc(2642 / 2040);
+  --ooo-map: url('assets/ooo_map.png');
+  --ooo-bg: url('assets/ooo_bg.png');
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+
+body {
+  background-image: var(--ooo-bg);
+  background-repeat: repeat;
+  animation: moveBackground 5s linear infinite;
+}
+
+@keyframes moveBackground {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 180px -116px;
+  }
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+  margin-top: 40px;
+}
+
+.grid {
+  width: 90vw;
+  aspect-ratio: var(--map-aspect);
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+  gap: var(--gap);
+  position: relative;
+  background-image: var(--ooo-map);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+}
+
+.cell {
+  background: transparent;
+}
+
+.cell:hover {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 8px));
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 9999;
+}
+
+.tooltip.hidden {
+  display: none
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 3px solid #2a2077;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
