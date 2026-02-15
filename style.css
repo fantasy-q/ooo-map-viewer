@@ -3,8 +3,8 @@
   --rows: 34;
   --gap: 0px;
   --map-aspect: calc(2642 / 2040);
-  --ooo-map: url('assets/ooo_map.png');
-  --ooo-bg: url('assets/ooo_bg.png');
+  --ooo-map: url('ooo_map.png');
+  --ooo-bg: url('ooo_bg.png');
 }
 
 html,
